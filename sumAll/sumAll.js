@@ -1,21 +1,19 @@
-const sumAll = function(first, last) {
+const sumAll = function(min, max) {
     let summation = 0;
-    if (first > last){
-        let temp = first;
-        first = last;
-        last = temp;
+    let temp = 0;
+    if(min < 0 || max <0) return 'ERROR';
+    if(Number.isInteger(min) === false || Number.isInteger(max) === false) return 'ERROR';
+
+    if(min > max){
+        temp = min;
+        min = max;
+        max = temp;
     }
-
-    if (first < 0 || last < 0) return "ERROR";
-
-    for(let i = first; first <= last; i++){
+    
+    for(let i = min; i <= max; i++){
         summation += i;
     }
     return summation;
 }
 
-console.log(sumAll(1,5));
-
-
-
-//module.exports = sumAll
+module.exports = sumAll
